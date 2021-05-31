@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+  Welcome, {{ name }}!
+</h1>
+
+{% for userword in userwords %}
+        	<a href="{{ url_for('main.word',word_id = userword.id) }}">
+            	<h2>{{ userword.word }}</h2>
+        	</a>
+        	<p>Power = {{ userword.power }}</p>
+        	<hr>
+{% endfor %}
+{% endblock %}

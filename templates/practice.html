@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{% block title %} Practice {% endblock %}</h1>
+
+<h2>  Definition </h2>
+<p>{{definition}}</p>
+
+
+<form action="{{ url_for('main.practice_result', words=words,answer=answer)}}" method="POST">
+  <p>Select Answer:</p>
+
+<div>
+  <input type="radio" id="{{words[0]}}" name="answer" value="{{words[0]}}"
+  <label for="{{words[0]}}"> {{words[0]}}</label>
+</div>
+
+<div>
+  <input type="radio" id="{{words[1]}}" name="answer" value="{{words[1]}}">
+  <label for="{{words[1]}}">{{words[1]}}</label>
+</div>
+
+<div>
+  <input type="radio" id="{{words[2]}}" name="answer" value="{{words[2]}}">
+  <label for="{{words[2]}}">{{words[2]}}</label>
+</div>
+
+  <input type="submit" value="Send Answer"
+            		class="btn btn-primary"
+            		>
+</form>
+
+
+{% endblock %}

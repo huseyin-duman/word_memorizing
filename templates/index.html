@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Welcome to Word Memorazing App{% endblock %}</h1>
+
+     <div class="form-group">
+        <input type="button" class="btn btn-primary" onclick="location.href='{{ url_for('auth.signup') }}'" value="Sign Up">
+        <input type="button" class="btn btn-primary" onclick="location.href='{{ url_for('auth.login') }}'" value="Login">
+    </div>
+
+{% endblock %}

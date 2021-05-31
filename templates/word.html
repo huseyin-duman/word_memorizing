@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} {{userword.word}} {% endblock %}</h1>
+
+<h4>  Definition </h4>
+<p>{{definition}}</p>
+<h4>  Power </h4>
+<p>{{userword.power}}</p>
+<h4>  Search Count </h4>
+<p>{{userword.search_count}}</p>
+<h4>  Practice Appearance </h4>
+<p>{{userword.appearance_count}}</p>
+<h4>  Practice Point </h4>
+<p>{{userword.practice_point}}</p>
+
+<form action="{{ url_for('main.delete', word_id=userword['id']) }}" method="POST">
+    		<input type="submit" value="Delete Word"
+            		class="btn btn-primary"
+            		onclick="return confirm('Are you sure you want to delete this meeting?')">
+    	</form>
+{% endblock %}

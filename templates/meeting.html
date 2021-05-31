@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} {{ meeting['topic'] }} Meeting{% endblock %}</h1>
+    <h4>Meeting Date</h4>
+    <p>{{ meeting['date'] }}</p>
+    <h4>Meeting Start Time</h4>    
+    <p>{{ meeting['start_time'] }}</p>
+    <h4>Meeting End Time</h4>
+    <p>{{ meeting['end_time'] }}</p>
+    <h4>Meeting Attendees</h4>
+    <p>{{ meeting['attendees'] }}</p>
+    
+    
+    <div class="btn-group">
+    	<button type="button" class="btn btn-primary" onclick="location.href='{{ url_for('edit', id=meeting['id']) }}'">Edit Meeting</button>
+    	<form action="{{ url_for('delete', id=meeting['id']) }}" method="POST">
+    		<input type="submit" value="Delete Meeting"
+            		class="btn btn-primary"
+            		onclick="return confirm('Are you sure you want to delete this meeting?')">
+    	</form>
+    	<button type="button" class="btn btn-primary" onclick="location.href='{{ url_for('index') }}'">Return Meeting List</Button>
+    </div>
+{% endblock %}

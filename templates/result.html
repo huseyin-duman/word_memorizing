@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} {{word}} {% endblock %}</h1>
+
+<h4>  Definition </h4>
+<p>{{definition}}</p>
+<form method="post">
+    <div class="form-group">
+       <form action="{{ url_for('main.result', word=word) }}" method="POST">
+    		<input type="submit" value="Add to my dictionary"
+            		class="btn btn-primary"
+            		>
+    	</form>
+    </div>
+</form>
+{% endblock %}
