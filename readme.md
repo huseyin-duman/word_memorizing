@@ -2,13 +2,13 @@
 
 Word Memorazing is a web app to create personal dictionary and practice your saved word. It is developed in python by using Flask. 
 
-You need to signup to use app. When you login to app you will see your saved words in your profile page with your power about the word. If you are new in app then your dictionary will be empty. To add words to your dictionary you can search some word and add them to your personal dictionary. If you add at least 10 words to your dictionary you can start to practice. 
+You need to signup to use app. When you login to app you will see your saved words in your profile page with your power about the word. If you are new in app then your dictionary will be empty. To add words to your dictionary you can search some words and add them to your personal dictionary. If you added at least 10 words to your dictionary you can start to practice. 
 
 In your profile you can click on a word to see details about the word. It includes definition of the word, search appearance, practice appearance and practice point. In this page user can remove the word from personal dictionary.
 
 When you search a word in your personal dictionary you will get +1 for search appearance. Similar to that practice appearance gets +1 when a word appeared in practice. Practice point gets +1 if you answerd correctly to the word in practice. However, practice point gets -2 if you select the wrong answer about the question. Also other 2 options will get -1 for practice point.
 
-You can just start to practice with username as guest and password 12345. Number one to ten are in the dictionary for this profile. Or you can create a new profile to yourself and start adding words to your personal dictionary.
+You can just start to practice with username as guest and password 12345. Numbers one to ten are in the dictionary for this profile. Or you can create a new profile to yourself and start adding words to your personal dictionary.
 
 ## Environment Setup and Initialization:
 
@@ -20,7 +20,7 @@ py -m venv env
 .\env\Scripts\activate
 pip install -r requirements.txt
 ```
-If you do not want to use guest account with already words in dictionary clear databese by deleting db.sqlite from your folder.
+If you do not want to use guest account with already words in dictionary, clear databese by deleting db.sqlite from your folder.
 
 To start word memorizing app.
 
@@ -45,7 +45,7 @@ from models import User
 from __init__ import create_app, db
 from flask_login import login_user, logout_user, login_required
 ```
-sign up method asks user name and password for the user. It asks password two time to ensure user entered password correct. Also sign up method checks if the user name is already exists. In both controls if there is unexpected condition flashes relevant warning. Method saves hashed password for security.
+sign up method asks user name and password for the user. It asks password two times to ensure user entered password is correct. Also sign up method checks if the user name is already exists. In both controls if there is unexpected condition flashes relevant warning. Method saves hashed password for security.
 ```python
 @auth.route('/signup', methods=('GET', 'POST'))
 def signup():
@@ -114,7 +114,7 @@ from models import Dictionary, UserWords
 import random
 ```
 There are several methods to update points of relevant column in UserWords table.
-Also there are 2 additional methods to get userword and definitin from relevant tables with id.
+Also there are 2 additional methods to get userword and definition from relevant tables with id.
 ```python
 @login_required
 def update_practice_point(word,value):
@@ -227,7 +227,7 @@ def result(word):
     definition = dictWord.definition
     return render_template('result.html',word=word,definition=definition)
 ```
-wrod method represents the details of the selected userword to user. It also increments search count because it shows the definition to user one more time.
+word method represents the details of the selected userword to user. It also increments search count because it shows the definition to user one more time.
 ```python
 @main.route('/profile/<int:word_id>')
 @login_required
