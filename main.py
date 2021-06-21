@@ -77,7 +77,7 @@ def search():
             else:
                 url = "https://wordsapiv1.p.rapidapi.com/words/"+word+"/definitions"
                 headers = {"X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
-                           "X-RapidAPI-Key":"2575265f2emsh3253ad0fe6112e7p10d5c6jsna3da56f0eeba"}
+                           "X-RapidAPI-Key":"there_must_be_key_number"}
                 res = requests.request("GET", url,headers=headers)
                 definition = json.loads(res.text)["definitions"][0]["definition"]
                 new_word= Dictionary(word=word, definition=definition)
